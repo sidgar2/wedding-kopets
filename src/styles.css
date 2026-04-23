@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'AuroraScript';
+  src: url('/fonts/aurorascript.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --fontAuroraScript: 'AuroraScript', cursive;
+  --gold: #D6A5B2;
+  --gold-light: #E8C8CF;
+  --gold-dark: #8a6d47;
+  --ivory: #f8f4ee;
+  --ivory-dark: #ede8de;
+  --charcoal: #2c2c2c;
+  --charcoal-light: #555;
+  --white: #ffffff;
+  --sage: #8a9e82;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ── Scroll Reveal ── */
+.sr-hidden {
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.sr-from-bottom  { opacity: 0; transform: translateY(40px); }
+.sr-from-left    { opacity: 0; transform: translateX(-40px); }
+.sr-from-right   { opacity: 0; transform: translateX(40px); }
+.sr-from-fade    { opacity: 0; transform: none; }
+
+.sr-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}

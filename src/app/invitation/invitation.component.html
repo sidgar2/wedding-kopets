@@ -1,0 +1,293 @@
+<div class="invitation-wrapper">
+    <!-- Snow -->
+    <div class="snow-container" aria-hidden="true">
+        <div
+                class="snowflake"
+                *ngFor="let flake of snowflakes"
+                [style.left]="flake.left"
+                [style.animation-delay]="flake.delay"
+                [style.animation-duration]="flake.duration"
+                [style.width]="flake.size"
+                [style.height]="flake.size"
+        ></div>
+    </div>
+
+    <!-- Back button -->
+    <button class="back-btn" (click)="goBack()" title="Назад">
+        ← назад
+    </button>
+
+    <!-- ── Hero ── -->
+    <section class="hero" appScrollReveal revealFrom="fade">
+        <div class="ornament">
+            <span class="line"></span><span class="diamond">◆</span><span class="line"></span>
+        </div>
+        <h1 class="couple-names">
+            <span>Олег</span>
+            <em class="ampersand">та</em>
+            <span>Марта</span>
+        </h1>
+        <div>
+            <p class="eyebrow">Зовсім скоро відбудеться</p>
+            <p class="eyebrow">важлива подія</p>
+        </div>
+        <p class="eyebrow-2"> — наше весiлля!</p>
+        <p class="date-hero">26 червня 2026 року</p>
+        <div class="ornament">
+            <span class="line"></span><span class="diamond">◆</span><span class="line"></span>
+        </div>
+    </section>
+
+    <!-- ── Couple Photo ── -->
+    <section class="photo-section" appScrollReveal revealFrom="bottom">
+        <div class="photo-frame">
+            <img
+                src="assets/Світлий_портрет_з_йоркширським_тер'єром.png"
+                alt="Олег та Марта"
+                class="couple-photo"
+            >
+            <span class="couple-photo-label">she said<br/>yes</span>
+        </div>
+    </section>
+
+    <!-- ── Music Player ── -->
+    <section class="music-section" appScrollReveal revealFrom="fade">
+        <audio #audioPlayer src="assets/1708541693867_3251.mp3" loop preload="auto"></audio>
+        <button class="music-btn" (click)="togglePlay()" [attr.aria-label]="isPlaying ? 'Pause music' : 'Play music'">
+            <svg *ngIf="!isPlaying" class="music-icon" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.2"/>
+                <polygon points="10,8 18,12 10,16" fill="currentColor"/>
+            </svg>
+            <svg *ngIf="isPlaying" class="music-icon" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.2"/>
+                <rect x="8" y="8" width="3" height="8" rx="1" fill="currentColor"/>
+                <rect x="13" y="8" width="3" height="8" rx="1" fill="currentColor"/>
+            </svg>
+        </button>
+        <span class="music-label">{{ isPlaying ? 'наша пісня грає...' : 'увімкнути музику' }}</span>
+    </section>
+
+    <!-- ── Poem / Verse ── -->
+    <section class="verse-section" appScrollReveal revealFrom="bottom">
+        <blockquote class="verse">
+            <p>ми не можемо уявити</p>
+            <p>цей день без найближчих</p>
+            <p>для нас людей і</p>
+            <p>хотіли б розділити його</p>
+            <p>разом з вами!</p>
+        </blockquote>
+    </section>
+
+    <!-- ── Divider ── -->
+    <div class="full-divider" aria-hidden="true" appScrollReveal revealFrom="fade">
+        <span class="line"></span>
+        <span class="diamond-large">❖</span>
+        <span class="line"></span>
+    </div>
+
+    <!-- ── Calendar ── -->
+    <section class="calendar-section" appScrollReveal revealFrom="bottom">
+        <div class="calendar-board">
+            <p class="cal-month">Червень, 2026</p>
+            <div class="cal-grid">
+                <span class="cal-day-name">ПН</span>
+                <span class="cal-day-name">ВТ</span>
+                <span class="cal-day-name">СР</span>
+                <span class="cal-day-name">ЧТ</span>
+                <span class="cal-day-name">ПТ</span>
+                <span class="cal-day-name">СБ</span>
+                <span class="cal-day-name">НД</span>
+
+                <span class="cal-date">22</span>
+                <span class="cal-date">23</span>
+                <span class="cal-date">24</span>
+                <span class="cal-date">25</span>
+                <span class="cal-date cal-highlighted">
+                    <svg class="cal-heart-outline" viewBox="0 0 57 61" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.22675 0.181297C5.6117 0.49225 4.30326 1.19519 3.11136 2.39211C1.79893 3.71047 1.11879 4.85877 0.460366 6.8684L0 8.27299V11.4063L0.000221422 14.5396L0.718464 17.0246C3.36613 26.1844 9.19627 35.0417 19.6793 45.8306L24.0477 50.3266L24.746 50.2605L25.4443 50.1944L25.5101 49.5407L25.5756 48.887L21.7126 45.7064C17.4104 42.1642 15.3835 40.1605 12.9266 37.0213C8.90693 31.8851 7.40575 29.6261 5.64714 26.0656C2.41349 19.5194 2.10333 18.421 1.73513 12.2114C1.68816 11.4223 2.16714 8.0999 2.50521 6.8684C3.05752 4.85726 4.70536 2.91894 6.7573 1.86744L7.72079 1.37368L9.67303 1.39702L11.625 1.42035L13.2656 2.23263C17.5722 4.36479 21.2622 8.82855 24.1103 15.3512L25.1252 17.6757L25.4281 19.6639L25.7312 21.6524L26.2214 22.0396C26.8916 22.5688 27.8615 22.5267 28.4934 21.9406C28.7816 21.6731 29.5052 20.7738 30.1016 19.9418C33.5127 15.1818 38.5581 9.7828 41.3263 7.93005C42.0193 7.46611 42.6473 6.99028 42.722 6.87272C43.0302 6.38631 45.9829 4.88103 47.8115 4.27814L49.7735 3.63138L51.0121 3.77098C53.0009 3.99528 53.9088 4.7436 54.493 6.64043L54.8553 7.81704L54.7409 9.66568C54.5303 13.0687 52.9334 17.8823 50.3568 22.8804C49.0958 25.327 46.2862 29.8696 44.9571 31.6107C44.3222 32.4426 42.8157 34.436 41.6096 36.0405C37.0722 42.0761 32.9375 46.1712 23.4504 54.0261C21.9882 55.2366 20.1115 56.8845 19.2803 57.6881L17.7684 59.1491L17.8402 59.6396C17.9545 60.4223 18.4676 60.3255 20.2393 59.1874C23.2133 57.2767 32.5042 48.4613 35.8663 44.3599C36.4508 43.6468 37.4942 42.4689 38.1848 41.7424C38.8753 41.0157 39.9301 39.7637 40.5287 38.9603C41.1273 38.1567 41.9792 37.081 42.4216 36.5699C43.4941 35.3317 49.0579 27.1577 50.0203 25.4067C53.1627 19.689 54.4598 16.8731 55.3254 13.8913C57.1881 7.47497 56.4338 3.55899 53.0543 2.10104C50.7266 1.09665 47.5541 1.76523 43.4509 4.12515C40.7997 5.65009 33.8875 11.6323 30.3182 15.4908C29.0997 16.8081 28.035 17.8866 27.9521 17.8875C27.8693 17.8883 27.4333 17.1424 26.9833 16.23C26.5334 15.3175 25.6638 13.7372 25.0508 12.7186C20.5577 5.24924 15.8906 1.11999 10.9759 0.26514C9.06733 -0.0669895 8.57351 -0.0780102 7.22675 0.181297Z" fill="#D6A5B2"/>
+                    </svg>
+                    26
+                    <span class="cal-heart-label">день весiлля</span>
+                </span>
+                <span class="cal-date">27</span>
+                <span class="cal-date">28</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Event Details ── -->
+    <section class="events-section">
+        <div class="venues-grid">
+            <!-- Ceremony -->
+            <div class="venue-card" appScrollReveal revealFrom="left">
+                <p class="venue-type">Місце вінчання</p>
+                <div class="venue-divider"></div>
+                <h3 class="venue-name">Архикатедральний Собор Святого Юра</h3>
+                <p class="venue-address">площа Святого Юра, 5, Львів</p>
+                <a class="venue-route" href="https://maps.app.goo.gl/oHFBdPdBKwoZqvcG8" target="_blank" rel="noopener">
+                    <svg class="route-icon" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5zm0 6.5A1.5 1.5 0 1 1 10 5a1.5 1.5 0 0 1 0 3.5z" fill="currentColor"/>
+                    </svg>
+                    Маршрут
+                </a>
+            </div>
+
+            <!-- Reception -->
+            <div class="venue-card" appScrollReveal revealFrom="right" [revealDelay]="150">
+                <p class="venue-type">Місце святкування</p>
+                <div class="venue-divider"></div>
+                <h3 class="venue-name">Готель-ресторан Чагарі</h3>
+                <p class="venue-address">вул. Стрийська 111, с. Липники</p>
+                <a class="venue-route" href="https://maps.app.goo.gl/Re2wwCxfeihFZrUU6" target="_blank" rel="noopener">
+                    <svg class="route-icon" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 2C7.24 2 5 4.24 5 7c0 4.25 5 11 5 11s5-6.75 5-11c0-2.76-2.24-5-5-5zm0 6.5A1.5 1.5 0 1 1 10 5a1.5 1.5 0 0 1 0 3.5z" fill="currentColor"/>
+                    </svg>
+                    Маршрут
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Full Divider ── -->
+    <div class="full-divider" aria-hidden="true" appScrollReveal revealFrom="fade">
+        <span class="line"></span>
+        <span class="diamond-large">❖</span>
+        <span class="line"></span>
+    </div>
+
+    <!-- ── Timeline ── -->
+    <section class="timeline-section" appScrollReveal revealFrom="bottom">
+        <h2 class="section-title">Програма дня</h2>
+        <div class="timeline">
+            <div class="timeline-item" *ngFor="let item of [
+        { time: '13:00', title: 'Церемонія вінчання', desc: 'Обмін обітницями та кільцями' },
+        { time: '14:30', title: 'Збір гостей в ресторані', desc: 'Ласкаво просимо! Аперитив та фото' },
+        { time: '22:30', title: 'Завершення', desc: 'Нічне небо та солодкий стіл' }
+      ]">
+                <div class="timeline-time">{{ item.time }}</div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4 class="timeline-title">{{ item.title }}</h4>
+                    <p class="timeline-desc">{{ item.desc }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Full Divider ── -->
+    <div class="full-divider" aria-hidden="true" appScrollReveal revealFrom="fade">
+        <span class="line"></span>
+        <span class="diamond-large">❖</span>
+        <span class="line"></span>
+    </div>
+
+    <!-- ── RSVP ── -->
+    <section class="rsvp-section" id="rsvp" appScrollReveal revealFrom="bottom">
+        <h2 class="section-title">Підтвердження присутності</h2>
+        <p class="rsvp-subtitle">Будь ласка, підтвердіть участь до <strong>1 червня 2026</strong></p>
+        <a class="heart-btn" href="https://docs.google.com/forms/d/e/1FAIpQLScZYE14Dcqx8skf8wbRSeHJ_mYEeNB7E9InxMp_7JoKkZy5OQ/viewform" target="_blank" rel="noopener">
+            <svg class="heart-svg" viewBox="0 0 100 90" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 85 C50 85 5 55 5 28 C5 14 16 5 28 5 C37 5 45 10 50 18 C55 10 63 5 72 5 C84 5 95 14 95 28 C95 55 50 85 50 85Z"/>
+            </svg>
+            <span class="heart-label">Підтвердити</span>
+        </a>
+    </section>
+
+    <!-- ── Full Divider ── -->
+    <div class="full-divider" aria-hidden="true" appScrollReveal revealFrom="fade">
+        <span class="line"></span>
+        <span class="diamond-large">❖</span>
+        <span class="line"></span>
+    </div>
+
+    <!-- ── Dress Code ── -->
+    <section class="dresscode-section" appScrollReveal revealFrom="bottom">
+        <h2 class="section-title">Дрес-код</h2>
+        <p class="dresscode-text">
+            Ми дуже стараємось зробити цей день не лише затишним і веселим, а й стильним —
+            тому нам буде надзвичайно приємно, якщо ви підтримаєте стиль і колір нашого
+            весілля у своїх образах.
+        </p>
+        <div class="cylinders-row">
+            <div class="cylinder-wrap" *ngFor="let c of dresscodeColors; let i = index"
+                 appScrollReveal revealFrom="bottom" [revealDelay]="i * 120">
+                <div class="cylinder" [style.background]="c.hex"></div>
+                <span class="cylinder-name">{{ c.name }}</span>
+            </div>
+        </div>
+        <p class="dresscode-text dresscode-text-bottom" appScrollReveal revealFrom="fade">
+            Просимо, щоб білий колір у цей день залишився виключно для нареченої
+        </p>
+    </section>
+
+    <!-- ── Full Divider ── -->
+    <div class="full-divider" aria-hidden="true" appScrollReveal revealFrom="fade">
+        <span class="line"></span>
+        <span class="diamond-large">❖</span>
+        <span class="line"></span>
+    </div>
+
+    <!-- ── Details ── -->
+    <section class="details-section">
+        <h2 class="section-title" appScrollReveal revealFrom="fade">Деталі</h2>
+        <div class="details-list">
+            <div class="detail-item" appScrollReveal revealFrom="bottom" [revealDelay]="0">
+                <div class="detail-number">1</div>
+                <p class="detail-text">
+                    Ми вирушаємо у весільну подорож одразу після
+                    святкування, тож, на жаль, квіти не зможуть поїхати з
+                    нами. Натомість приємним компліментом для нас
+                    замість квітів буде пляшка вашого улюбленого напою ❤️<br/>
+                    Ваші усмішки та гарний настрій подарують нам
+                    незабутнє щастя у цей день, а побажання у конвертах
+                    допоможуть нам здійснити наші мрії
+                </p>
+            </div>
+            <div class="detail-item" appScrollReveal revealFrom="bottom" [revealDelay]="100">
+                <div class="detail-number">2</div>
+                <p class="detail-text">
+                    Приєднуйтесь до спільного чату в
+                    <a class="detail-link" href="TELEGRAM_LINK" target="_blank" rel="noopener">Telegram</a>
+                    — там можна ділитися враженнями, фото та відео з весілля.
+                    Якщо виникнуть якісь питання чи побажання, зв'яжіться з нами в телеграм.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Countdown ── -->
+    <section class="countdown-section" appScrollReveal revealFrom="bottom">
+        <p class="section-label">До урочистого дня залишилось</p>
+        <div class="countdown">
+            <div class="count-unit">
+                <span class="count-number">{{ pad(countdown.days) }}</span>
+                <span class="count-label">Днів</span>
+            </div>
+            <span class="count-sep">:</span>
+            <div class="count-unit">
+                <span class="count-number">{{ pad(countdown.hours) }}</span>
+                <span class="count-label">Годин</span>
+            </div>
+            <span class="count-sep">:</span>
+            <div class="count-unit">
+                <span class="count-number">{{ pad(countdown.minutes) }}</span>
+                <span class="count-label">Хвилин</span>
+            </div>
+            <span class="count-sep">:</span>
+            <div class="count-unit">
+                <span class="count-number">{{ pad(countdown.seconds) }}</span>
+                <span class="count-label">Секунд</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer class="invitation-footer" appScrollReveal revealFrom="fade">
+        <div class="ornament">
+            <span class="line"></span><span class="diamond">◆</span><span class="line"></span>
+        </div>
+        <p class="footer-names">Олег та Марта</p>
+        <p class="footer-date">26 · 06 · 2026</p>
+        <p class="footer-love">З любов'ю та вдячністю</p>
+    </footer>
+</div>

@@ -1,0 +1,313 @@
+/* ── Wrapper ── */
+.landing-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px;
+}
+
+/* ── Snowflakes ── */
+.snow-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  border-radius: 50%;
+  background: rgba(184, 150, 106, 0.25);
+  animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+  0%   { transform: translateY(-10px) rotate(0deg); opacity: 0.8; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* ── Botanicals ── */
+.botanical {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 120px;
+  height: 400px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.botanical-left  { left: 0; }
+.botanical-right { right: 0; transform: translateY(-50%) scaleX(-1); }
+
+/* ── Main Content ── */
+.main-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* ── Ornament ── */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 220px;
+}
+
+.ornament .line {
+  flex: 1;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+.ornament .diamond {
+  font-size: 8px;
+  color: var(--gold);
+}
+
+/* ── Eyebrow ── */
+.eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ── Couple Names ── */
+.couple-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 8vw, 88px);
+  font-weight: 300;
+  line-height: 1;
+  color: var(--charcoal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+}
+
+.couple-names .name {
+  display: block;
+}
+
+.couple-names .ampersand {
+  font-size: 0.5em;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+  margin: 2px 0;
+}
+
+/* ── Date ── */
+.date-line {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.date-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: var(--charcoal-light);
+}
+
+/* ── Envelope Container ── */
+.envelope-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+/* ── Envelope ── */
+.envelope {
+  width: 200px;
+  height: 140px;
+  position: relative;
+  perspective: 800px;
+  cursor: pointer;
+}
+
+/* Envelope body parts */
+.envelope-back,
+.envelope-left,
+.envelope-right,
+.envelope-bottom {
+  position: absolute;
+  background: #e8dccb;
+  border: 1px solid rgba(214, 165, 178, 0.3);
+}
+
+.envelope-back {
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #E8C8CF 0%, #D6A5B2 100%);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Left triangle */
+.envelope-left {
+  width: 0; height: 0;
+  background: transparent;
+  border: none;
+  border-top: 70px solid transparent;
+  border-bottom: 70px solid transparent;
+  border-left: 100px solid rgba(214, 165, 178, 0.6);
+  top: 0; left: 0;
+  z-index: 2;
+}
+
+/* Right triangle */
+.envelope-right {
+  width: 0; height: 0;
+  background: transparent;
+  border: none;
+  border-top: 70px solid transparent;
+  border-bottom: 70px solid transparent;
+  border-right: 100px solid rgba(214, 165, 178, 0.7);
+  top: 0; right: 0;
+  z-index: 2;
+}
+
+/* Bottom triangle */
+.envelope-bottom {
+  width: 0; height: 0;
+  background: transparent;
+  border: none;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 80px solid rgba(214, 165, 178, 0.5);
+  bottom: 0; left: 0;
+  z-index: 3;
+}
+
+/* Card peaking out */
+.card-peek {
+  position: absolute;
+  width: 80%;
+  height: 85%;
+  top: 5%;
+  left: 10%;
+  z-index: 1;
+  background: #faf7f0;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(214, 165, 178, 0.2);
+}
+
+.card-peek-inner {
+  text-align: center;
+}
+
+.card-monogram {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+/* Envelope flap */
+.envelope-flap {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+}
+
+.flap-inner {
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-top: 80px solid rgba(214, 165, 178, 0.9);
+  position: relative;
+}
+
+.flap-seal {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 28px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 8px;
+  box-shadow: 0 2px 8px rgba(184, 150, 106, 0.5);
+}
+
+/* ── Open Button ── */
+.open-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: lowercase;
+  padding: 12px 36px;
+  border-radius: 0;
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+
+.open-btn:hover:not(:disabled) {
+  background: var(--gold);
+  color: white;
+}
+
+.open-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* ── Footer ── */
+.landing-footer {
+  position: absolute;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .botanical { display: none; }
+  .couple-names { font-size: 52px; }
+}

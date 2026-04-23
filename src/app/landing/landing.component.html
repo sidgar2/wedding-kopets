@@ -1,0 +1,105 @@
+<div class="landing-wrapper">
+  <!-- Snowflakes -->
+  <div class="snow-container" aria-hidden="true">
+    <div
+      class="snowflake"
+      *ngFor="let flake of snowflakes"
+      [style.left]="flake.left"
+      [style.animation-delay]="flake.delay"
+      [style.animation-duration]="flake.duration"
+      [style.width]="flake.size"
+      [style.height]="flake.size"
+    ></div>
+  </div>
+
+  <!-- Botanical decorations -->
+  <div class="botanical botanical-left" aria-hidden="true">
+    <svg viewBox="0 0 120 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 400 Q55 350 50 300 Q40 280 20 260 Q40 270 55 290 Q52 250 40 220 Q20 200 5 180 Q30 195 50 215 Q48 180 38 150 Q22 130 10 105 Q28 120 45 140 Q43 108 35 80 Q25 60 20 35 Q35 55 42 78 Q45 55 43 30 Q52 50 52 75 Q55 55 56 30 Q62 52 60 78 Q65 55 70 30 Q75 52 73 78 Q78 55 85 30 Q82 55 78 80 Q83 108 97 140 Q112 120 118 105 Q105 130 92 150 Q95 180 100 215 Q120 195 113 180 Q100 200 90 220 Q78 250 77 290 Q92 270 115 260 Q100 280 80 300 Q72 350 65 400" stroke="#E8C8CF" stroke-width="1" stroke-opacity="0.4" fill="none"/>
+      <ellipse cx="15" cy="178" rx="12" ry="7" fill="#E8C8CF" fill-opacity="0.15" transform="rotate(-30 15 178)"/>
+      <ellipse cx="8" cy="105" rx="10" ry="6" fill="#E8C8CF" fill-opacity="0.12" transform="rotate(-45 8 105)"/>
+      <ellipse cx="22" cy="60" rx="8" ry="5" fill="#E8C8CF" fill-opacity="0.1" transform="rotate(-20 22 60)"/>
+      <ellipse cx="118" cy="178" rx="12" ry="7" fill="#E8C8CF" fill-opacity="0.15" transform="rotate(30 118 178)"/>
+      <ellipse cx="110" cy="105" rx="10" ry="6" fill="#E8C8CF" fill-opacity="0.12" transform="rotate(45 110 105)"/>
+      <ellipse cx="98" cy="60" rx="8" ry="5" fill="#E8C8CF" fill-opacity="0.1" transform="rotate(20 98 60)"/>
+    </svg>
+  </div>
+
+  <div class="botanical botanical-right" aria-hidden="true">
+    <svg viewBox="0 0 120 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M60 400 Q65 350 70 300 Q80 280 100 260 Q80 270 65 290 Q68 250 80 220 Q100 200 115 180 Q90 195 70 215 Q72 180 82 150 Q98 130 110 105 Q92 120 75 140 Q77 108 85 80 Q95 60 100 35 Q85 55 78 78 Q75 55 77 30 Q68 50 68 75 Q65 55 64 30 Q58 52 60 78 Q55 55 50 30 Q45 52 47 78 Q42 55 35 30 Q38 55 42 80 Q37 108 23 140 Q8 120 10 105 Q25 130 35 150 Q28 180 25 215 Q5 195 7 180 Q20 200 30 220 Q42 250 43 290 Q28 270 5 260 Q20 280 40 300 Q48 350 55 400" stroke="#E8C8CF" stroke-width="1" stroke-opacity="0.4" fill="none"/>
+      <ellipse cx="105" cy="178" rx="12" ry="7" fill="#E8C8CF" fill-opacity="0.15" transform="rotate(30 105 178)"/>
+      <ellipse cx="112" cy="105" rx="10" ry="6" fill="#E8C8CF" fill-opacity="0.12" transform="rotate(45 112 105)"/>
+      <ellipse cx="98" cy="60" rx="8" ry="5" fill="#E8C8CF" fill-opacity="0.1" transform="rotate(20 98 60)"/>
+      <ellipse cx="2" cy="178" rx="12" ry="7" fill="#E8C8CF" fill-opacity="0.15" transform="rotate(-30 2 178)"/>
+      <ellipse cx="10" cy="105" rx="10" ry="6" fill="#E8C8CF" fill-opacity="0.12" transform="rotate(-45 10 105)"/>
+      <ellipse cx="22" cy="60" rx="8" ry="5" fill="#E8C8CF" fill-opacity="0.1" transform="rotate(-20 22 60)"/>
+    </svg>
+  </div>
+
+  <!-- Main content -->
+  <main class="main-content" @fadeIn>
+    <div class="ornament top-ornament" aria-hidden="true">
+      <span class="line"></span>
+      <span class="diamond">◆</span>
+      <span class="line"></span>
+    </div>
+
+    <p class="eyebrow">Весілля</p>
+
+    <h1 class="couple-names">
+      <span class="name">Олег</span>
+      <span class="ampersand">та</span>
+      <span class="name">Марта</span>
+    </h1>
+
+    <div class="date-line">
+      <span class="date-text">26 · 06 · 2026</span>
+    </div>
+
+    <div class="ornament bottom-ornament" aria-hidden="true">
+      <span class="line"></span>
+      <span class="diamond">◆</span>
+      <span class="line"></span>
+    </div>
+
+    <!-- Envelope -->
+    <div
+      class="envelope-container"
+      [@envelopeSlide]="envelopeState"
+    >
+      <div class="envelope" [class.opening]="isOpening">
+        <!-- Envelope back -->
+        <div class="envelope-back"></div>
+
+        <!-- Card peaking out -->
+        <div class="card-peek" [@cardReveal]="cardState">
+          <div class="card-peek-inner">
+            <span class="card-monogram">О&amp;М</span>
+          </div>
+        </div>
+
+        <!-- Envelope flap -->
+        <div class="envelope-flap" [@flap]="flapState">
+          <div class="flap-inner">
+            <div class="flap-seal">◆</div>
+          </div>
+        </div>
+
+        <!-- Envelope front sides -->
+        <div class="envelope-left"></div>
+        <div class="envelope-right"></div>
+        <div class="envelope-bottom"></div>
+      </div>
+
+      <button class="open-btn" (click)="openInvitation()" [disabled]="isOpening">
+        відкрити
+      </button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <p>Разом назавжди · 2026</p>
+  </footer>
+</div>
